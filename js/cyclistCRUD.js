@@ -26,7 +26,8 @@ async function fetchAnything(url, fetchMethod, objektToFetch){
     const response = await fetch(url, request)
     const responseData = await response.json()
 
-    if(!responseData.ok) {
+    if(!response.ok) {
+        console.log("Response data: ", responseData)
         throw new Error(responseData.message)
     }
     return responseData
@@ -95,7 +96,7 @@ function createCyclist() {
     }).catch(error => {
         console.error(error) // hvis det fejler log'er vi error.
     })
-
+    window.location.reload();
 }
 
 document.querySelector("#createCyclistModalBtn").addEventListener("click", createCyclist)

@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db219c5-7045-4ffa-b7d3-c855aef94173" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML/cyclistCRUD.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/cyclistCRUD.html" afterDir="false" />
+    <list default="true" id="6db219c5-7045-4ffa-b7d3-c855aef94173" name="Changes" comment="Create cyclist">
       <change beforePath="$PROJECT_DIR$/js/cyclistCRUD.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cyclistCRUD.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +39,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -61,11 +59,23 @@
       <updated>1682513624407</updated>
       <workItem from="1682513625736" duration="9966000" />
       <workItem from="1683805108348" duration="2525000" />
-      <workItem from="1684398343176" duration="12592000" />
+      <workItem from="1684398343176" duration="12904000" />
     </task>
+    <task id="LOCAL-00001" summary="Create cyclist">
+      <created>1685012875266</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685012875266</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Create cyclist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create cyclist" />
   </component>
 </project>
