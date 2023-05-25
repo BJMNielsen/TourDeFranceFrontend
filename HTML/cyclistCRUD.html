@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
 
@@ -35,8 +36,58 @@
 
     </table>
 
+    <div class="modal fade" id="createCykelRytterModal" tabindex="-1" aria-labelledby="createCykelRytterModalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="createCykelRytterModalTitle">Create cykelrytter</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modalFormCreateCyclist">
+                        <div class="mb-3">
+                            <label for="createInputAge" class="col-form-label">Alder:</label>
+                            <input name="age" type="number" step="1" class="form-control" id="createInputAge"> <!-- step siger bare du kun kan bruge hele tal-->
+                        </div>
+                        <div class="mb-3">
+                            <label for="createInputName" class="col-form-label">Navn:</label>
+                            <input name="name" type="text" class="form-control" id="createInputName"> <!--Name skal være == navnet på variablerne i cyclist klassen i java backend-->
+                        </div>
+                        <div class="mb-3">
+                            <label for="createInputSamletTid" class="col-form-label">Samlet tid:</label>
+                            <input name="samletTid" type="number" min="0" class="form-control" id="createInputSamletTid">
+                        </div>
+                        <div class="mb-3">
+                            <label for="createInputBjergPoint" class="col-form-label">Bjerg point:</label>
+                            <input name="bjergpoint" type="number" class="form-control" id="createInputBjergPoint" step="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="createInputSpurgtPoint" class="col-form-label">Spurt point:</label>
+                            <input name="spurtpoint" type="number" class="form-control" id="createInputSpurgtPoint" step="1">
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" id="dropDownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Team
+                            </button>
+                            <ul class="dropdown-menu" id="dropDownMenu">
+                                <li class="dropdown-item">Action</li>
+                                <li class="dropdown-item">Action 2</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="createCyclistModalBtn">Create Cyklist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <section>
-        <h2>Section</h2>
+        <h2>Overskift</h2>
+        <button class="btn btn-dark" id="btn-createCykelrytter" data-bs-toggle="modal" data-bs-target="#createCykelRytterModal" data-bs-whatever="@mdo"> Create cykelrytter</button>
     </section>
 </main>
 

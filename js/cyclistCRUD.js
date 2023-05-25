@@ -5,6 +5,34 @@ async function fetchAny(url) {
     console.log(url);
     return await fetch(url).then((response) => response.json());
 }
+// Dette er en metode til at skabe et request object, som bruges af de andre metoder
+
+function createRequest(method, objekt) {
+    const request = {
+        method: method,
+        headers: {
+            "content-type": "application/json"
+        }
+    }
+    if (objekt !== null) {
+        request.body = JSON.stringify(objekt) // Dvs hvis vi giver et objekt med i vores request (fx ved en put eller post), så bliver request body'en sat til at indeholde objektet.
+        // Hvis ikke så bliver body ikke sat (til fx delete eller get)
+    }
+    return request
+}
+
+async function fetchAnything(url, fetchMethod, objektToFetch){
+    const request = createRequest(fetchMethod, objektToFetch)
+    const response = await fetch(url, request)
+    const responseData = await response.json()
+
+    if(!responseData.ok) {
+        throw new Error(responseData.message)
+    }
+    return responseData
+}
+
+
 
 // Den tager data og mapper det ind i en tabel.
 function showAllCyclists(data) {
@@ -52,6 +80,69 @@ async function getAllCyclists() {
     console.log(cyclists);
     // Vi kalder metoden der indsætter cyclister i vores tabel i HTML'en
     showAllCyclists(cyclists);
+}
+
+document.querySelector("#dropDownButton").addEventListener("click", dropDown)
+
+function createCyclist() {
+    const cyclistForm = document.querySelector("#modalFormCreateCyclist")
+    const cyclistObjekt = preparePlainFormData(cyclistForm) // vi laver alt input fra formen om til et javascript objekt.
+    cyclistObjekt.team = team // vi siger at cyclistObjekt også skal indeholde et team, og at værdien er team. Den laver en variabel hvis den ikke eksistere.
+
+    // url + fetchmetode + objekt vi gerne vil fetche
+    fetchAnything(url + "/cyclist", "POST", cyclistObjekt).then(cyclist => {
+        console.log("Saved cyclist: ", cyclist) // hvis det lykkedes log'er vi cyclisten.
+    }).catch(error => {
+        console.error(error) // hvis det fejler log'er vi error.
+    })
+
+}
+
+document.querySelector("#createCyclistModalBtn").addEventListener("click", createCyclist)
+
+async function dropDown(){
+    const dropDownMenu = document.querySelector("#dropDownMenu");
+    dropDownMenu.innerHTML=''; // vi sletter lige alt i listen først
+    try{
+        const teams = await fetchAny(url + "/teams");
+        console.log(teams)
+        teams.forEach(team => {
+            const dropDownListElement = document.createElement("li");
+            dropDownListElement.team = team // Vi laver et team for dropDownListElement og sætter det til at være == team fra vores fetch kald
+            dropDownListElement.className ="dropdown-item"
+            dropDownListElement.textContent = team.name
+            dropDownMenu.appendChild(dropDownListElement)
+            dropDownListElement.addEventListener("click", teamPicker)
+        })
+    }
+    catch (error){
+        console.error(error);
+    }
+}
+
+
+// Når du trykker på et element i dropdown menuen, dvs vælger et team, så sker det der er i den her metode
+function teamPicker(event) {
+    const listeElement = event.target //elementet er li elementet, og inde i listen er der et team.
+    console.log(listeElement.team)
+    const dropDownButton = document.querySelector("#dropDownButton")
+    dropDownButton.textContent = listeElement.team.name // Vi sætter dropDownMenuens text til at være vores valg af team.
+    // vi gemmer vores valgte team i vores team constant ude for metoden.
+    team = listeElement.team
+
+}
+
+let team = null;
+
+
+// Denne metode laver et form element om til et javascript objekt vi kalder plainFormData.
+function preparePlainFormData(form) {
+    console.log("Received the Form:", form)
+    const formData = new FormData(form)  // indbygget metode, behøves ikke forstås.
+    console.log("Made the form in to FormData:", formData)
+    const plainFormData = Object.fromEntries(formData.entries())
+    console.log("Changes and returns the FormData as PlainFormData:", plainFormData)
+    return plainFormData
 }
 
 async function deleteCyclistButtonEvent(event) {

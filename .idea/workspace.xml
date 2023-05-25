@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6db219c5-7045-4ffa-b7d3-c855aef94173" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HTML/cyclistCRUD.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/cyclistCRUD.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/cyclistCRUD.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cyclistCRUD.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +21,7 @@
         <option value="package.json" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -42,6 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,6 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1682513624407</updated>
       <workItem from="1682513625736" duration="9966000" />
+      <workItem from="1683805108348" duration="2525000" />
+      <workItem from="1684398343176" duration="12592000" />
     </task>
     <servers />
   </component>
